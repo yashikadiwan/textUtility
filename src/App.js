@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import About from './components/About';
 import TextArea from './components/TextArea';
 import { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 function App() {
   const[mode,setMode]=useState("light");
@@ -41,15 +41,16 @@ function App() {
     }
   };
   
-  return (
+  return (                //removing routed for now for deploying as react routes create problem in git pages
     <>
-    <Router>
+    {/* <Router> */}
    <Navbar title="textUtils" mode={mode} togglemode={togglemode} togglemode2={togglemode2} modetext={modetext} />
-   <Routes>
-        <Route path="/" element={<TextArea heading="Enter text below" mode={mode} />} />
-        <Route path="/about" element={<About />} />
-    </Routes>
-   </Router>
+   <TextArea heading="Enter text below" mode={mode} />
+   {/* <Routes> */}
+        {/* <Route path="/" element={<TextArea heading="Enter text below" mode={mode} />} /> */}
+        {/* <Route path="/about" element={<About />} /> */}
+    {/* </Routes> */}
+   {/* </Router> */}
     </>
   );
 }
